@@ -7,6 +7,10 @@ pipeline {
     skipDefaultCheckout true
     preserveStashes(buildCount: 2)
   }
+  triggers {
+    eventTrigger simpleMatch('hello-api-push-event')
+  }
+
   stages {
     stage('Test') {
       agent {
